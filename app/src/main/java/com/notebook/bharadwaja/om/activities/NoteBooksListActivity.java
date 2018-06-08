@@ -11,7 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.TextView;
+
 
 
 import com.notebook.bharadwaja.om.R;
@@ -25,7 +25,7 @@ import java.util.List;
 
 public class NoteBooksListActivity extends AppCompatActivity implements NotesAdapter.OnNoteItemClick{
 
-    private TextView textViewMsg;
+
     private RecyclerView recyclerView;
     private NoteDatabase noteDatabase;
     private List<Note> notes;
@@ -39,7 +39,7 @@ public class NoteBooksListActivity extends AppCompatActivity implements NotesAda
         setContentView(R.layout.activity_main);
         initializeVies();
         displayList();
-        //
+
     }
 
     private void displayList(){
@@ -70,7 +70,6 @@ public class NoteBooksListActivity extends AppCompatActivity implements NotesAda
                 activityReference.get().notes.clear();
                 activityReference.get().notes.addAll(notes);
                 // hides empty text view
-                activityReference.get().textViewMsg.setVisibility(View.GONE);
                 activityReference.get().notesAdapter.notifyDataSetChanged();
             }
         }
@@ -79,7 +78,7 @@ public class NoteBooksListActivity extends AppCompatActivity implements NotesAda
     private void initializeVies(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        textViewMsg =  (TextView) findViewById(R.id.tv__empty);
+     //   textViewMsg =  (TextView) findViewById(R.id.tv__empty);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(listener);
         recyclerView = findViewById(R.id.recycler_view);
@@ -136,12 +135,8 @@ public class NoteBooksListActivity extends AppCompatActivity implements NotesAda
     }
 
     private void listVisibility(){
-        int emptyMsgVisibility = View.GONE;
         if (notes.size() == 0){ // no item to display
-            if (textViewMsg.getVisibility() == View.GONE)
-                emptyMsgVisibility = View.VISIBLE;
         }
-        textViewMsg.setVisibility(emptyMsgVisibility);
         notesAdapter.notifyDataSetChanged();
     }
 
