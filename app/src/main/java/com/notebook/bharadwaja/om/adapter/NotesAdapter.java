@@ -25,7 +25,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.BeanHolder> 
     private LayoutInflater layoutInflater;
     private OnNoteItemClick onNoteItemClick;
 
-    ////
+
     public NotesAdapter(List<Note> list, Context context) {
         layoutInflater = LayoutInflater.from(context);
         this.list = list;
