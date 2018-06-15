@@ -16,21 +16,20 @@ import com.notebook.bharadwaja.om.util.DateRoomConverter;
  * Created by Pavneet_Singh on 12/31/17.
  */
 
-@Database(entities = { Note.class }, version = 1)
+@Database(entities = {Note.class}, version = 1)
 @TypeConverters({DateRoomConverter.class})
 public abstract class NoteDatabase extends RoomDatabase {
 
     public abstract NoteDao getNoteDao();
 
-
-    private static NoteDatabase noteDB;
+    private static NoteDatabase notebookDB;
 
     // synchronized is use to avoid concurrent access in multithred environment
     public static /*synchronized*/ NoteDatabase getInstance(Context context) {
-        if (null == noteDB) {
-            noteDB = buildDatabaseInstance(context);
+        if (null == notebookDB) {
+            notebookDB = buildDatabaseInstance(context);
         }
-        return noteDB;
+        return notebookDB;
     }
 
     private static NoteDatabase buildDatabaseInstance(Context context) {
@@ -39,7 +38,7 @@ public abstract class NoteDatabase extends RoomDatabase {
                 Constants.DB_NAME).allowMainThreadQueries().build();
     }
 
-    public  void cleanUp(){
-        noteDB = null;
+    public void cleanUp() {
+        notebookDB = null;
     }
 }

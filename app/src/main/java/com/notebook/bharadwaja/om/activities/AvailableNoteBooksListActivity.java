@@ -23,7 +23,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoteBooksListActivity extends AppCompatActivity implements NotesAdapter.OnNoteItemClick{
+public class AvailableNoteBooksListActivity extends AppCompatActivity implements NotesAdapter.OnNoteItemClick{
 
 
     private RecyclerView recyclerView;
@@ -43,16 +43,16 @@ public class NoteBooksListActivity extends AppCompatActivity implements NotesAda
     }
 
     private void displayList(){
-        noteDatabase = NoteDatabase.getInstance(NoteBooksListActivity.this);
+        noteDatabase = NoteDatabase.getInstance(AvailableNoteBooksListActivity.this);
         new RetrieveTask(this).execute();
     }
 
      private static class RetrieveTask extends AsyncTask<Void,Void,List<Note>> {
 
-        private WeakReference<NoteBooksListActivity> activityReference;
+        private WeakReference<AvailableNoteBooksListActivity> activityReference;
 
         // only retain a weak reference to the activity
-        RetrieveTask(NoteBooksListActivity context) {
+        RetrieveTask(AvailableNoteBooksListActivity context) {
             activityReference = new WeakReference<>(context);
         }
 
@@ -82,16 +82,16 @@ public class NoteBooksListActivity extends AppCompatActivity implements NotesAda
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(listener);
         recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(NoteBooksListActivity.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(AvailableNoteBooksListActivity.this));
         notes = new ArrayList<>();
-        notesAdapter = new NotesAdapter(notes,NoteBooksListActivity.this);
+        notesAdapter = new NotesAdapter(notes,AvailableNoteBooksListActivity.this);
         recyclerView.setAdapter(notesAdapter);
     }
 
     private View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            startActivityForResult(new Intent(NoteBooksListActivity.this,AddNoteBookActivity.class),100);
+            startActivityForResult(new Intent(AvailableNoteBooksListActivity.this,AddNewNoteBookActivity.class),100);
         }
     };
 
@@ -109,7 +109,7 @@ public class NoteBooksListActivity extends AppCompatActivity implements NotesAda
 
     @Override
     public void onNoteClick(final int pos) {
-            new AlertDialog.Builder(NoteBooksListActivity.this)
+            new AlertDialog.Builder(AvailableNoteBooksListActivity.this)
             .setTitle("Select Options")
             .setItems(new String[]{"Delete", "Update"}, new DialogInterface.OnClickListener() {
                 @Override
@@ -121,10 +121,10 @@ public class NoteBooksListActivity extends AppCompatActivity implements NotesAda
                             listVisibility();
                             break;
                         case 1:
-                            NoteBooksListActivity.this.pos = pos;
+                            AvailableNoteBooksListActivity.this.pos = pos;
                             startActivityForResult(
-                                    new Intent(NoteBooksListActivity.this,
-                                            AddNoteBookActivity.class).putExtra("note",notes.get(pos)),
+                                    new Intent(AvailableNoteBooksListActivity.this,
+                                            AddNewNoteBookActivity.class).putExtra("note",notes.get(pos)),
                                     100);
 
                             break;

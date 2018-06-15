@@ -16,7 +16,7 @@ import com.notebook.bharadwaja.om.notedb.model.Note;
 
 import java.lang.ref.WeakReference;
 
-public class AddNoteBookActivity extends AppCompatActivity {
+public class AddNewNoteBookActivity extends AppCompatActivity {
 
     private TextInputEditText et_title,et_content;
     private NoteDatabase noteDatabase;
@@ -29,7 +29,7 @@ public class AddNoteBookActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_note);
         et_title = findViewById(R.id.et_title);
         et_content = findViewById(R.id.et_content);
-        noteDatabase = NoteDatabase.getInstance(AddNoteBookActivity.this);
+        noteDatabase = NoteDatabase.getInstance(AddNewNoteBookActivity.this);
         Button button = findViewById(R.id.but_save);
         if ( (note = (Note) getIntent().getSerializableExtra("note"))!=null ){
             getSupportActionBar().setTitle("Update Note");
@@ -48,7 +48,7 @@ public class AddNoteBookActivity extends AppCompatActivity {
                     setResult(note,2);
                 }else {
                     note = new Note(et_content.getText().toString(), et_title.getText().toString());
-                    new InsertTask(AddNoteBookActivity.this,note).execute();
+                    new InsertTask(AddNewNoteBookActivity.this,note).execute();
                 }
             }
         });
@@ -61,11 +61,11 @@ public class AddNoteBookActivity extends AppCompatActivity {
 
     private static class InsertTask extends AsyncTask<Void,Void,Boolean> {
 
-        private WeakReference<AddNoteBookActivity> activityReference;
+        private WeakReference<AddNewNoteBookActivity> activityReference;
         private Note note;
 
         // only retain a weak reference to the activity
-        InsertTask(AddNoteBookActivity context, Note note) {
+        InsertTask(AddNewNoteBookActivity context, Note note) {
             activityReference = new WeakReference<>(context);
             this.note = note;
         }
