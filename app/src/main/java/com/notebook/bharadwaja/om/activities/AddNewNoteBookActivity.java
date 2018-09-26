@@ -34,6 +34,7 @@ public class AddNewNoteBookActivity extends AppCompatActivity {
         if ( (note = (Note) getIntent().getSerializableExtra("note"))!=null ){
             getSupportActionBar().setTitle("Update Note");
             update = true;
+            //this is it
             button.setText("Update");
             et_title.setText(note.getTitle());
             et_content.setText(note.getContent());

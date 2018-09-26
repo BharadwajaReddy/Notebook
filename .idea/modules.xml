@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Notebook.iml" filepath="$PROJECT_DIR$/.idea/Notebook.iml" />
       <module fileurl="file://$PROJECT_DIR$/Notebook.iml" filepath="$PROJECT_DIR$/Notebook.iml" />
-      <module fileurl="file://C:\Users\BharadwajaReddy\AndroidStudioProjects\notebookproject\Notebook.iml" filepath="C:\Users\BharadwajaReddy\AndroidStudioProjects\notebookproject\Notebook.iml" />
+      <module fileurl="file://C:/Users/BharadwajaReddy/AndroidStudioProjects/notebookproject/Notebook.iml" filepath="C:/Users/BharadwajaReddy/AndroidStudioProjects/notebookproject/Notebook.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\BharadwajaReddy\AndroidStudioProjects\notebookproject\app\app.iml" filepath="C:\Users\BharadwajaReddy\AndroidStudioProjects\notebookproject\app\app.iml" />
-      <module fileurl="file://D:\PracticeProjects\Notebook\.idea\notebookproject.iml" filepath="D:\PracticeProjects\Notebook\.idea\notebookproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:/Users/BharadwajaReddy/AndroidStudioProjects/notebookproject/app/app.iml" filepath="C:/Users/BharadwajaReddy/AndroidStudioProjects/notebookproject/app/app.iml" />
+      <module fileurl="file://D:/PracticeProjects/Notebook/.idea/notebookproject.iml" filepath="D:/PracticeProjects/Notebook/.idea/notebookproject.iml" />
     </modules>
   </component>
 </project>
