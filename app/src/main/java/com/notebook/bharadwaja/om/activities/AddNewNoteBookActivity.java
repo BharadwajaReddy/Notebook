@@ -36,6 +36,7 @@ public class AddNewNoteBookActivity extends AppCompatActivity {
             update = true;
             //this is it
             button.setText("Update");
+            //this is it
             et_title.setText(note.getTitle());
             et_content.setText(note.getContent());
         }
