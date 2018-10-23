@@ -41,6 +41,7 @@ public class AddNewNoteBookActivity extends AppCompatActivity {
 
 
             //this is it
+            //there will be changes
             et_title.setText(note.getTitle());
             et_content.setText(note.getContent());
         }
